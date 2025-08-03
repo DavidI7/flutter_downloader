@@ -609,7 +609,7 @@ class DownloadWorker(context: Context, params: WorkerParameters) :
             val res = applicationContext.resources
             val channelName: String = res.getString(R.string.flutter_downloader_notification_channel_name)
             val channelDescription: String = res.getString(R.string.flutter_downloader_notification_channel_description)
-            val importance: Int = NotificationManager.IMPORTANCE_LOW
+            val importance: Int = NotificationManager.IMPORTANCE_HIGH
             val channel = NotificationChannel(CHANNEL_ID, channelName, importance)
             channel.description = channelDescription
             channel.setSound(null, null)
