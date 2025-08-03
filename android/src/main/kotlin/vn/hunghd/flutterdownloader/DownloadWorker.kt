@@ -612,7 +612,6 @@ class DownloadWorker(context: Context, params: WorkerParameters) :
             val importance: Int = NotificationManager.IMPORTANCE_HIGH
             val channel = NotificationChannel(CHANNEL_ID, channelName, importance)
             channel.description = channelDescription
-            channel.setSound(null, null)
 
             // Add the channel
             val notificationManager: NotificationManagerCompat = NotificationManagerCompat.from(context)
@@ -637,7 +636,7 @@ class DownloadWorker(context: Context, params: WorkerParameters) :
                 .setContentIntent(intent)
                 .setOnlyAlertOnce(true)
                 .setAutoCancel(true)
-                .setPriority(NotificationCompat.PRIORITY_LOW)
+                .setPriority(NotificationCompat.PRIORITY_HIGH)
             when (status) {
                 DownloadStatus.RUNNING -> {
                     if (progress <= 0) {
